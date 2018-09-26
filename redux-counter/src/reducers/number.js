@@ -5,8 +5,8 @@ const initialState = {
 };
 
 const number = (state = initialState, action) => {
-    switch (action.type) {
-        case types.INCREMENT:
+    switch(action.type) {
+        case types.INCREMENT: 
             return {
                 number: state.number + 1
             };
