@@ -11,4 +11,5 @@
 
 
 ### SubCode (SampleCode)
-- [Immutable(14)](https://github.com/liante0904/react-tech-book/tree/master/sampleCode/14-Immutable.js)
+- [Immutable(14-1)](https://github.com/liante0904/react-tech-book/blob/master/sampleCode/14-1%20Immutable.js)
+- [Ducks(14-2)](https://github.com/liante0904/react-tech-book/blob/master/sampleCode/14-2%20Ducks.js)
