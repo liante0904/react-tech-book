@@ -10,9 +10,35 @@ import * as todosActions from '../modules/todos';
 
 
 class TodoInputContainer extends Component {
+    id = 1
+    getId = () => {
+        return ++this.id;
+    }
+    handleChange= (e) => {
+        const { value } = e.target;
+        const { InputActions } = this.props;
+        InputActions.setInput(value);
+    }
+    HandleInsert = () => {
+        const { InputActions, TodosActions, value } = this.props;
+        const todo = {
+            id: this.getId(),
+            text: value,
+            done: false
+        }
+        TodosActions.insert(todo);
+        InputActions.setInput('');
+    }
     render() {
+        const { value } = this.props;
+        const { handleChange, HandleInsert } = this;
+
         return (
-            <TodoInput/>
+            <TodoInput
+              onChange={handleChange}
+              onInsert={HandleInsert}
+              value={value}
+            />
         );
     }
 }
@@ -31,7 +57,7 @@ export default connect(
             setInput: (value) => dispatch(inputActions.setInput(value))
         } 나중에 이를 호출할 때는 this.props.InputActions.setInput을 호출하면 됩니다.
         */
-       inputActions: bindActionCreators(inputActions, dispatch),
-       todosActions: bindActionCreators(todosActions, dispatch)
+       InputActions: bindActionCreators(inputActions, dispatch),
+       TodosActions: bindActionCreators(todosActions, dispatch)
     })
 )(TodoInputContainer);
