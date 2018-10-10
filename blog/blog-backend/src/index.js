@@ -1,3 +1,17 @@
+require('dotenv').config();
+const mongoose = require('mongoose');
+
+const {
+  PORT: port = 4000, // 값이 존재하지 않는다면 4000을 기본 값으로 사용
+  MONGO_URI: mongoURI
+} = process.env;
+
+mongoose.Promise = global.Promise; // Node의 Promise를 사용하도록 설정
+mongoose.connect(mongoURI).then(() => {
+  console.log('connected to mongodb');
+}).catch((e) => {
+  console.error(e);
+});
 const Koa = require('koa');
 const Router = require('koa-router');
 const bodyParser = require('koa-bodyparser');
@@ -50,5 +64,5 @@ app.use((ctx) => {
 });
 */
 app.listen(4000, () => {
-  console.log('listening to port 4000');
+  console.log('listening to port port', port);
 });
