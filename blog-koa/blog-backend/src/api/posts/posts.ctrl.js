@@ -1,3 +1,6 @@
+const Post = require('models/post');
+const Joi = require('joi');
+
 let postId = 1; // id의 초깃값입니다
 
 const posts = [
@@ -27,8 +30,13 @@ exports.write = (ctx) => {
 
 /* 포스트 목록 조회
    GET /api/posts */
-exports.list = (ctx) => {
-  ctx.body = posts;
+exports.list = async (ctx) => {
+  try {
+    const posts = await Post.find().sort({_id: -1}).exec();
+    ctx.body = posts;
+  } catch (e) {
+    ctx.throw(e, 500);
+  }
 };
 
 /* 특정 포스트 조회

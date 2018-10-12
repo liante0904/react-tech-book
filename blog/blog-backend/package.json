@@ -12,6 +12,7 @@
     "mongoose": "^5.3.2"
   },
   "devDependencies": {
+    "cross-env": "^5.2.0",
     "eslint": "^5.6.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
@@ -19,6 +20,7 @@
   },
   "scripts": {
     "start": "NODE_PATH=node src",
-    "start:dev": "NODE_PATH=src nodemon --watch src/ src/index.js"
+    "start:dev": "NODE_PATH=src nodemon --watch src/ src/index.js",
+    "start:dev_win": "cross-env NODE_PATH=src nodemon --watch src/ src/index.js"  
   }
 }
