@@ -30,7 +30,7 @@ if (result.error) {
   ctx.body = result.error;
   return;
 }
-const { title, boay, tags } = ctx.request.body;
+const { title, body, tags } = ctx.request.body;
 
   // Post 인스턴스를 만듭니다.
   const post = new Post({
@@ -47,9 +47,32 @@ const { title, boay, tags } = ctx.request.body;
 
 /** GET /api/posts */
 exports.list = async (ctx) => {
+  // page가 주어지지 않았다면 1로 간주
+  // query는 문자열 형태로 받아 오므로 숫자로 변환
+  const page = parseInt(ctx.query.page || 1, 10);
+
+  // 잘못된 페이지가 주어졌다면 에러처리
+  if(page < 1){
+    ctx.status = 400;
+    return;
+  }
+
   try {
-    const posts = await Post.find().exec();
-    ctx.body = posts;
+    const posts = await Post.find()
+      .sort({_id: -1})  // 역순 조회
+      .limit(10)        // 출력 갯수 제한
+      .skip((page - 1) * 10)
+      .exec(); 
+    const postCount = await Post.count().exec();
+    // 200자 이상은 제한하기
+    const limitBodyLength = post => ({
+      ...post,
+      body: post.body.length < 200 ? post.body : `${post.body.slice(0,200)}...`
+    });
+    // 마지막 페이지 알려주기
+    // ctx.set은 response header를 설정
+    ctx.set('Last-Page', Math.ceil(postCount / 10));
+    ctx.body = posts.map(limitBodyLength);
   } catch (error) {
     ctx.throw(e, 500);
   }
