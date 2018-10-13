@@ -16,7 +16,7 @@ exports.checkObjectId = (ctx, next) => {
 
 exports.write = async (ctx) => {
 // 객체가 지닌 값들을 검증
-const scghma = Joi.object().keys({
+const schema = Joi.object().keys({
   title: Joi.string().required(), // 뒤에 required를 붙여주면 필수 항목이라는 의미
   body: Joi.string().required(), 
   tag: Joi.array().items(Joi.string()).required() // 문자열 배열   
