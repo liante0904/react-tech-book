@@ -1,0 +1,28 @@
+@import 'utils';
+
+.box {
+  display: inline-block;
+  width: $size;
+  height: $size;
+  border: 1px solid black;
+  position: fixed;
+  
+  @include place-at-center();
+  
+  /* 스타일 설정 */
+  &.blue {
+    background: blue;
+  }
+  &:active {
+    background: yellow;
+  }
+  &:hover {
+    background: red;
+  }
+
+  .box-inside{
+    background: black;
+    width: 50px;
+    height: 50px;
+  }
+}
