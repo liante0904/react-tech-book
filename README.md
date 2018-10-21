@@ -19,7 +19,7 @@
     - nodemon, postman
 - [blog-backend(19)](https://github.com/liante0904/react-tech-book/tree/master/blog)
 - [blog-frontend(20)](https://github.com/liante0904/react-tech-book/tree/master/blog-frontend)
-    - mongoose, dotenv
+    - mongoose, dotenv, p490 generate-react-component
 - [react-blog(21)](https://github.com/liante0904/react-tech-book/tree/master/react-blog/)
 ### SubCode (SampleCode)
 - [Immutable(14-1)](https://github.com/liante0904/react-tech-book/blob/master/sampleCode/14-1%20Immutable.js)
