@@ -15,6 +15,19 @@ import 'codemirror/mode/shell/shell';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/monokai.css';
 
+// 웹 브라우저일 때만 로딩
+let CodeMirror = null;
+const isBrowser = process.env.APP_ENV === 'browser';
+if (isBrowser) {
+  CodeMirror = require('codemirror');
+  require('codemirror/mode/markdown/markdown');
+  require('codemirror/mode/javascript/javascript');
+  require('codemirror/mode/jsx/jsx');
+  require('codemirror/mode/css/css');
+  require('codemirror/mode/shell/shell');
+}
+
+
 const cx = classNames.bind(styles);
 
 class EditorPane extends Component {
