@@ -5,7 +5,6 @@ import classNames from 'classnames/bind';
 import marked from 'marked';
 
 // prism 관련 코드 불러오기
-import Prism from 'prismjs';
 import 'prismjs/themes/prism-okaidia.css';
 
 // 웹 브라우저일 때만 로딩
