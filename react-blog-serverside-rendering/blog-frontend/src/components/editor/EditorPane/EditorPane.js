@@ -2,23 +2,15 @@ import React, { Component } from 'react';
 import styles from './EditorPane.scss';
 import classNames from 'classnames/bind';
 
-import CodeMirror from 'codemirror';
-
-import 'codemirror/mode/markdown/markdown'; // 마크다운 문법 색상
-// 마크다운 내부에 들어가는 코드 색상
-import 'codemirror/mode/javascript/javascript';
-import 'codemirror/mode/jsx/jsx';
-import 'codemirror/mode/css/css';
-import 'codemirror/mode/shell/shell';
-
 // CodeMirror를 위한 CSS 스타일
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/monokai.css';
 
-// 웹 브라우저일 때만 로딩
+<<<<<<< HEAD
+// 브라우저일 때만 로딩
 let CodeMirror = null;
 const isBrowser = process.env.APP_ENV === 'browser';
-if (isBrowser) {
+if(isBrowser) {
   CodeMirror = require('codemirror');
   require('codemirror/mode/markdown/markdown');
   require('codemirror/mode/javascript/javascript');
@@ -28,6 +20,8 @@ if (isBrowser) {
 }
 
 
+=======
+>>>>>>> parent of 5ae3beb... reading chapter22
 const cx = classNames.bind(styles);
 
 class EditorPane extends Component {
@@ -100,7 +94,7 @@ class EditorPane extends Component {
             name="tags"
             placeholder="태그를 입력하세요 (쉼표로 구분)"
             value={tags}
-          onChange={handleChange}
+            onChange={handleChange}
           />
         </div>
       </div>

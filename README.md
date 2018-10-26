@@ -17,7 +17,7 @@
 - [react-router-tutorial-code-splitting(17)](https://github.com/liante0904/react-tech-book/tree/master/react-router-tutorial-code-splitting)
 - [blog-koa(18)](https://github.com/liante0904/react-tech-book/tree/master/blog-koa)
     - nodemon, postman
-- [blog-backend(19)](https://github.com/liante0904/react-tech-book/tree/master/blog)
+- [blog-backend(19)](https://github.com/liante0904/react-tech-book/tree/master/blog-backend)
 - [blog-frontend(20)](https://github.com/liante0904/react-tech-book/tree/master/blog-frontend)
     - mongoose, dotenv, p490 generate-react-component
 - [react-blog(21)](https://github.com/liante0904/react-tech-book/tree/master/react-blog/)
