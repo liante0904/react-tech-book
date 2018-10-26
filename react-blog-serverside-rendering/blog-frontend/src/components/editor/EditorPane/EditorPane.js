@@ -6,7 +6,6 @@ import classNames from 'classnames/bind';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/monokai.css';
 
-<<<<<<< HEAD
 // 브라우저일 때만 로딩
 let CodeMirror = null;
 const isBrowser = process.env.APP_ENV === 'browser';
@@ -20,8 +19,6 @@ if(isBrowser) {
 }
 
 
-=======
->>>>>>> parent of 5ae3beb... reading chapter22
 const cx = classNames.bind(styles);
 
 class EditorPane extends Component {
